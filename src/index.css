@@ -4,3 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-text-color {
+    color: #ece4de !important;
+  }

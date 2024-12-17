@@ -4,6 +4,7 @@ import sinImage from './images/sin.png';  // Импортирует изобра
 
 function LolPage() {  // Определяет функциональный компонент с именем LolPage.
   return (
+   
     <div className="flex flex-col min-h-screen w-full" style={{ backgroundColor: "rgba(49,43,71)" }}>
       {/* Главный контейнер страницы. Он использует классы Tailwind CSS:
           - `flex` - задаёт флексбокс для выравнивания дочерних элементов.
@@ -25,9 +26,10 @@ function LolPage() {  // Определяет функциональный ко�
               - `borderTop: "none"`, `borderLeft: "none"`, `borderRight: "none"` — убирает видимость рамки сверху, слева и справа, оставляя рамку только снизу. */}
 
         <div className="container mx-auto">
-          <h1 className="text-2xl md:text-4xl font-semibold text-center">
-            Добро пожаловать на главную страницу
-          </h1>
+        <h1 className="text-2xl md:text-4xl font-poppins font-bold text-center text-text-color">
+  Добро пожаловать на главную страницу
+</h1>
+
           {/* Заголовок на странице, который изменяет размер текста в зависимости от ширины экрана:
               - `text-2xl` - на маленьких экранах размер текста 2xl.
               - `md:text-4xl` - на экранах среднего размера (md) размер текста становится 4xl.
@@ -98,7 +100,7 @@ function LolPage() {  // Определяет функциональный ко�
       <main>
         {/* Основная часть страницы */}
         <div
-          className="flex flex-col items-start justify-start space-y-4 p-6 rounded-tr-[25px] rounded-br-[25px] max-w-[250px] hover:max-w-[350px] duration-300 group"
+          className="flex flex-col items-start justify-start space-y-4 p-6 rounded-tr-[25px] rounded-br-[25px] max-w-[250px] hover:max-w-[380px] duration-300 group"
           style={{ backgroundColor: "rgb(71, 62, 103)", border: "2px solid rgb(93, 81, 135)", position: "relative", top: "50px", borderLeft: "none" }}
         >
           {/* Контейнер для информации о персонаже:
@@ -123,9 +125,9 @@ function LolPage() {  // Определяет функциональный ко�
             {/* Изображение элемента персонажа, размер 12x12 */}
             <div className="inline-flex items-center space-x-2">
               {/* Блок для имени персонажа и дополнительных данных */}
-              <span className="text-2xl font-semibold text-cyan-400 whitespace-nowrap">Син Цю</span>
+              <span className="text-2xl font-poppins  font-bold  whitespace-nowrap text-text-color ">Син Цю</span>
               {/* Имя персонажа с размером текста 2xl и цветом текста cyan */}
-              <span className="text-2xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: "rgb(229, 231, 235)" }}>
+              <span className="text-2xl font-poppins  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-text-color" >
                 Галантный юноша
               </span>
               {/* Текст, который будет видим только при наведении (opacity-0 по умолчанию) */}
@@ -149,13 +151,36 @@ function LolPage() {  // Определяет функциональный ко�
           </div>
           {/* Отображение 4 звёзд для рейтинга персонажа. */}
         </div>
+        <div
+  className="flex flex-col items-start justify-end space-y-4 p-6 rounded-[20px] max-w-[250px] group"
+  style={{
+    backgroundColor: "rgb(71, 62, 103)",
+    border: "2px solid rgb(93, 81, 135)",
+    position: "relative",
+    top: "4em",
+    left: "2em", // Add this line to move the element to the right
+ 
+    maxWidth: "350px",
+
+  }}
+>
+  <div className="inline-flex items-center space-x-3">
+
+<a id="profile" className="font-poppins  font-bold text-[20px]  text-text-color" >О персонаже</a>
+
+  </div>
+</div>
+
+
+
+
 
         {/* Изображение персонажа */}
         <img src={sinImage} alt="Описание изображения" className="mt-4" />
         {/* Изображение персонажа (sin.png), добавленное с отступом сверху (mt-4). */}
       </main>
 
-      <footer className="bg-bgcolor border-bordercolor text-text-color p-4 text-center" style={{ border: "2px solid rgb(93, 81, 135)", borderBottom: "none", borderLeft: "none", borderRight: "none" }}>
+      <footer className="bg-bgcolor border-bordercolor text-text-color p-4 text-center font-poppins  font-bold text-text-color" style={{ border: "2px solid rgb(93, 81, 135)", borderBottom: "none", borderLeft: "none", borderRight: "none" }}>
         {/* Подвал страницы с фоновым цветом и рамкой вокруг (border) */}
         <p>&copy; {new Date().getFullYear()} Все права защищены.</p>
         {/* Текст с копирайтом, который отображает текущий год */}

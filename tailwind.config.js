@@ -1,17 +1,20 @@
 // tailwind.config.js
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'bold'],  // Fixed the typo here by closing the quote
+      },
       colors: {
-        'text-color': 'rgb(229, 231, 235)',
-        'bgcolor': 'rgb(71, 62, 103);',
-        'bordercolor': 'rgb(93, 81, 135)'
+        'text-color': '#ece4de',
+        'bgcolor': 'rgb(71, 62, 103)',
+        'bordercolor': 'rgb(93, 81, 135)',
       },
     },
   },
