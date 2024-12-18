@@ -1,10 +1,16 @@
-import React from 'react';  // Импортирует библиотеку React для работы с компонентами.
+import React, { useState } from 'react'; // Добавлено useState для управления состоянием.
 import { Link } from 'react-router-dom';  // Импортирует компонент Link из библиотеки react-router-dom, чтобы использовать для создания ссылок внутри приложения.
-import sinImage from './images/sin.png';  // Импортирует изображение персонажа (sin.png), которое будет использовано на странице.
+
+import sinImagee from './images/xingqiu.webp';  // Импортирует изображение персонажа (sin.png), которое будет использовано на странице.
+
+
 
 function LolPage() {  // Определяет функциональный компонент с именем LolPage.
+  const [activeSection, setActiveSection] = useState("profile");
+  
+
   return (
-   
+
     <div className="flex flex-col min-h-screen w-full" style={{ backgroundColor: "rgba(49,43,71)" }}>
       {/* Главный контейнер страницы. Он использует классы Tailwind CSS:
           - `flex` - задаёт флексбокс для выравнивания дочерних элементов.
@@ -26,7 +32,7 @@ function LolPage() {  // Определяет функциональный ко�
               - `borderTop: "none"`, `borderLeft: "none"`, `borderRight: "none"` — убирает видимость рамки сверху, слева и справа, оставляя рамку только снизу. */}
 
         <div className="container mx-auto">
-        <h1 className="text-2xl md:text-4xl font-poppins font-bold text-center text-text-color">
+        <h1 className="text-2xl md:text-4xl text-center text-text-color">
   Добро пожаловать на главную страницу
 </h1>
 
@@ -96,8 +102,8 @@ function LolPage() {  // Определяет функциональный ко�
           </ul>
         </div>
       </header>
-
-      <main>
+<div className="wrapper" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <main style={{ flex: 1 }}>
         {/* Основная часть страницы */}
         <div
           className="flex flex-col items-start justify-start space-y-4 p-6 rounded-tr-[25px] rounded-br-[25px] max-w-[250px] hover:max-w-[380px] duration-300 group"
@@ -125,9 +131,9 @@ function LolPage() {  // Определяет функциональный ко�
             {/* Изображение элемента персонажа, размер 12x12 */}
             <div className="inline-flex items-center space-x-2">
               {/* Блок для имени персонажа и дополнительных данных */}
-              <span className="text-2xl font-poppins  font-bold  whitespace-nowrap text-text-color ">Син Цю</span>
+              <span className="text-2xl  whitespace-nowrap text-text-color ">Син Цю</span>
               {/* Имя персонажа с размером текста 2xl и цветом текста cyan */}
-              <span className="text-2xl font-poppins  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-text-color" >
+              <span className="text-2xl  opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-text-color" >
                 Галантный юноша
               </span>
               {/* Текст, который будет видим только при наведении (opacity-0 по умолчанию) */}
@@ -151,42 +157,100 @@ function LolPage() {  // Определяет функциональный ко�
           </div>
           {/* Отображение 4 звёзд для рейтинга персонажа. */}
         </div>
-        <div
-  className="flex flex-col items-start justify-end space-y-4 p-6 rounded-[20px] max-w-[250px] group"
-  style={{
-    backgroundColor: "rgb(71, 62, 103)",
-    border: "2px solid rgb(93, 81, 135)",
-    position: "relative",
-    top: "4em",
-    left: "2em", // Add this line to move the element to the right
- 
-    maxWidth: "350px",
+        <div className="relative flex">
+  <div
+    className="flex flex-col items-start space-y-4 p-6 rounded-[20px] max-w-[350px] group w-[600px]" 
+    style={{
+      backgroundColor: "rgb(71, 62, 103)",
+      border: "2px solid rgb(93, 81, 135)",
+      position: "relative",
+      top: "4em",
+      left: "2em",
+    }}
+  ><ul className="flex flex-col w-full space-y-2 ">
+  {[
+    { id: "profile", label: "О персонаже" },
+    { id: "talents", label: "Таланты" },
+    { id: "constellation", label: "Созвездие" },
+    { id: "ascension", label: "Возвышение" },
+    { id: "guides", label: "Гайды" },
+    { id: "other", label: "Другое" },
+    { id: "story", label: "История" },
+    { id: "quotes", label: "Цитаты" },
+  ].map((item) => (
+    <li key={item.id} className="w-full">
+      <button
+        onClick={() => setActiveSection(item.id)}
+        className={`block w-full p-2 text-[20px] text-left text-text-color rounded transition duration-300 border-2 ${
+          activeSection === item.id 
+          ? "bg-bordercolor border-bordercolor" 
+          : "bg-transparent border-transparent hover:bg-bordercolor"
+      } rounded-[10px]`} 
+    >
+  {item.label}
+</button>
 
-  }}
->
-  <div className="inline-flex items-center space-x-3">
+            </li>
+          ))}
+        </ul>
+      </div>
+      
 
-<a id="profile" className="font-poppins  font-bold text-[20px]  text-text-color" >О персонаже</a>
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+  <div
+    className="snap-x flex justify-center items-center h-full w-full p-6 rounded-[20px]"
+    style={{
+      position: "relative",
+      top: "4em",
+    }}
+  >
+    {activeSection === "profile" && (
+      <div className="snap-center text-center">
+        <h2 className="text-2xl text-text-color">О персонаже</h2>
+        <img
+  src={sinImagee}
+  alt="Син Цю"
+  className='lol'
+  style={{ width: "100%", height: "800px",}} // Adjust the values as needed
 
+/>
+
+      </div>
+    )}
+    {activeSection === "talents" && (
+      <div>
+        <h2 className="text-2xl text-text-color">Таланты</h2>
+        <p className="text-text-color mt-4">Описание талантов персонажа.</p>
+      </div>
+    )}
+    {/* Добавьте другие секции аналогично */}
   </div>
 </div>
 
+      
+    </div>
 
 
 
-
-        {/* Изображение персонажа */}
-        <img src={sinImage} alt="Описание изображения" className="mt-4" />
-        {/* Изображение персонажа (sin.png), добавленное с отступом сверху (mt-4). */}
       </main>
 
-      <footer className="bg-bgcolor border-bordercolor text-text-color p-4 text-center font-poppins  font-bold text-text-color" style={{ border: "2px solid rgb(93, 81, 135)", borderBottom: "none", borderLeft: "none", borderRight: "none" }}>
-        {/* Подвал страницы с фоновым цветом и рамкой вокруг (border) */}
-        <p>&copy; {new Date().getFullYear()} Все права защищены.</p>
-        {/* Текст с копирайтом, который отображает текущий год */}
-      </footer>
+
+      <footer className="bg-bgcolor border-bordercolor text-text-color p-4 text-center" style={{ border: "2px solid rgb(93, 81, 135)", borderBottom: "none", borderLeft: "none", borderRight: "none" }}>
+    {/* Подвал страницы с фоновым цветом и рамкой вокруг (border) */}
+    <p>&copy; {new Date().getFullYear()} Все права защищены.</p>
+    {/* Текст с копирайтом, который отображает текущий год */}
+  </footer>
+    </div>
     </div>
   );
 }
 
 export default LolPage;
+
+
+
+
+
+
+
+

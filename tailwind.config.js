@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'bold'],  // Fixed the typo here by closing the quote
+        poppins: ['Poppins', 'Bold'],  // Fixed the typo here by closing the quote
       },
       colors: {
         'text-color': '#ece4de',
