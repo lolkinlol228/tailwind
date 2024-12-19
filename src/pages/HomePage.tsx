@@ -8,7 +8,8 @@ import sinImagee from './images/xingqiu.webp';  // Импортирует изо
 function LolPage() {  // Определяет функциональный компонент с именем LolPage.
   const [activeSection, setActiveSection] = useState("profile");
   
-
+  const [value, setValue] = useState(0); // Предполагается, что это в функциональном компоненте React
+  
   return (
 
     <div className="flex flex-col min-h-screen w-full" style={{ backgroundColor: "rgba(49,43,71)" }}>
@@ -196,7 +197,7 @@ function LolPage() {  // Определяет функциональный ко�
       </div>
       
 
-      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+      <div className="absolute inset-0 flex justify-center items-center ">
   <div
     className="snap-x flex justify-center items-center h-full w-full p-6 rounded-[20px]"
     style={{
@@ -205,17 +206,155 @@ function LolPage() {  // Определяет функциональный ко�
     }}
   >
     {activeSection === "profile" && (
-      <div className="snap-center text-center">
-        <h2 className="text-2xl text-text-color">О персонаже</h2>
-        <img
-  src={sinImagee}
-  alt="Син Цю"
-  className='lol'
-  style={{ width: "100%", height: "800px",}} // Adjust the values as needed
+<div className="snap-center text-center absolute">
+  <h2 className="text-2xl text-text-color">О персонаже</h2>
+  <img
+    src={sinImagee}
+    alt="Син Цю"
+    className="lol"
+    style={{ width: "100%", height: "800px" }}
+  />
 
-/>
 
+
+
+
+
+
+
+
+  <div className="flex">
+    <div
+      className="snap-end bg-bgcolor border-bordercolor "
+      style={{ border: "2px solid rgb(93, 81, 135)", position: "absolute", right: "-36em", top: "-1.5em" }}
+    >
+
+<div className="flex items-center ">
+  <span className="text-text-color text-[30px] rounded-lg p-1" style={{ background: "rgb(93, 81, 135)", margin: "20px" }}>
+    lv.20
+  </span>
+  <span className="text-text-color text-[30px] rounded-lg p-1 flex items-center" style={{ background: "rgb(93, 81, 135)" }}>
+  Таблица
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5 ml-2">
+    <path fill="currentColor" d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8zm8 0v4h6V8zm-8 6v4h6v-4zm8 0v4h6v-4z"></path>
+  </svg>
+</span>
+<div className="w-full max-w-md mx-auto p-4">
+      <div className="flex items-center justify-between mb-2">
+        <label className="text-sm font-medium">Value: {value}</label>
       </div>
+      
+      <input 
+  type="range"
+  min="0"
+  max="6"
+  value={value}
+  onChange={(e) => setValue(parseInt(e.target.value))}
+  className="slider w-full"  // Изменено на 'slider', убраны прежние стили
+/>
+    </div>
+</div>
+
+
+
+<ul className="flex flex-col items-start justify-start  p-6">
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor space-x-20 w-full p-4 " 
+   style={{ backgroundColor: 'rgb(80, 72, 111)' }}>
+
+    <h2 className="text-left text-text-color text-lg font-medium " >Элемент</h2>
+
+  
+    <img
+      src="https://gi.yatta.moe/assets/UI/UI_Buff_Element_Water.png?vh=2024111801"
+      alt="Avatar Element"
+      className="w-12 h-12 rounded-full"
+    />
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor space-x-20 w-full p-4 "
+   style={{ backgroundColor: 'rgb(67, 59, 98)' }}>
+ 
+    <h2 className="text-left text-text-color text-lg font-medium " >Оружие</h2>
+
+    <img
+      src="https://gi.yatta.moe/assets/UI/UI_GachaTypeIcon_Sword.png?vh=2024111801"
+      alt="Avatar Element"
+      className="w-12 h-12 rounded-full"
+    />
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor space-x-20 w-full p-4 "
+    style={{ backgroundColor: 'rgb(80, 72, 111)' }}>
+
+    <h2 className="text-left text-text-color text-lg font-medium " >Созвездие</h2>
+
+
+   <h2 className='text-right text-text-color text-lg font-medium'>Пёстрый Гобелен</h2>
+  </li>
+  <li className="inline-flex items-center justify-between bg-newbgcolor space-x-20 w-full p-4 "
+   style={{ backgroundColor: 'rgb(67, 59, 98)' }}>
+
+    <h2 className="text-left text-text-color text-lg font-medium " >Группа</h2>
+
+  
+   <h2 className='text-right text-text-color text-lg font-medium'>Торговая гильдия «Фэйюнь»</h2>
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor space-x-20 w-full p-4 "
+   style={{ backgroundColor: 'rgb(80, 72, 111)' }}>
+
+    <h2 className="text-left text-text-color text-lg font-medium " >День рождения</h2>
+
+   
+   <h2 className='text-right text-text-color text-lg font-medium'>10/9</h2>
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor space-x-20 w-full p-4 "
+   style={{ backgroundColor: 'rgb(67, 59, 98)' }}>
+
+    <h2 className="text-left text-text-color text-lg font-medium " >Озвучка (EN)</h2>
+
+
+   <h2 className='text-right text-text-color text-lg font-medium'>Cristina Vee Valenzuela</h2>
+  </li>
+  <li className="inline-flex items-center justify-between bg-newbgcolor w-full p-4"
+    style={{ backgroundColor: 'rgb(80, 72, 111)' }}>
+    <h2 className="text-left text-text-color text-lg font-medium">Озвучка (CHS)</h2>
+    <h2 className='text-right text-text-color text-lg font-medium'>唐雅菁</h2>
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor w-full p-4"
+    style={{ backgroundColor: 'rgb(67, 59, 98)' }}>
+    <h2 className="text-left text-text-color text-lg font-medium">Озвучка (JP)</h2>
+    <h2 className='text-right text-text-color text-lg font-medium'>皆川純子</h2>
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor w-full p-4"
+    style={{ backgroundColor: 'rgb(80, 72, 111)' }}>
+    <h2 className="text-left text-text-color text-lg font-medium">Озвучка (KR)</h2>
+    <h2 className='text-right text-text-color text-lg font-medium'>Kwak Kyu-mi</h2>
+  </li>
+
+  <li className="inline-flex items-center justify-between bg-newbgcolor w-full p-4"
+ >
+ 
+    <h2 className='text-right text-text-color text-lg font-medium'>
+      Молодой любитель книг с благородным сердцем и длинным мечом.
+    </h2>
+  </li>
+</ul>
+
+    </div>
+  </div>
+</div>
+/*  <li 
+  className="bg-blackedbgcolor" 
+  style={{ backgroundColor: 'rgb(57, 49, 82)' }}
+>
+  Текст
+</li> */
+
     )}
     {activeSection === "talents" && (
       <div>
