@@ -2,6 +2,9 @@ import React, { useState } from 'react'; // Добавлено useState для �
 import { Link } from 'react-router-dom';  // Импортирует компонент Link из библиотеки react-router-dom, чтобы использовать для создания ссылок внутри приложения.
 
 import sinImagee from './images/xingqiu.webp';  // Импортирует изображение персонажа (sin.png), которое будет использовано на странице.
+import CharacterStats from './images/CharacterStats';
+
+
 
 
 
@@ -13,16 +16,7 @@ function LolPage() {  // Определяет функциональный ко�
   
  
   const [value, setValue] = useState(0); // Предполагается, что это в функциональном компоненте React
-/*const statsByLevel: { [key: number]: Stats } = {
-  20: { hp: 2202, atk: 43, def: 163, atkBonus: "0%" },
-  40: { hp: 4257, atk: 84, def: 316, atkBonus: "0%", price: 20000 },
-  50: { hp: 5420, atk: 107, def: 402, atkBonus: "6%", price: 40000 },
-  60: { hp: 6735, atk: 133, def: 499, atkBonus: "12%", price: 60000 },
-  70: { hp: 7897, atk: 156, def: 585, atkBonus: "12%", price: 80000 },
-  80: { hp: 9060, atk: 179, def: 671, atkBonus: "18%", price: 100000 },
-  90: { hp: 10222, atk: 202, def: 758, atkBonus: "24%", price: 120000 },
-};
-*/
+
   return (
 
     <div className="flex flex-col min-h-screen w-full" style={{ backgroundColor: "rgba(49,43,71)" }}>
@@ -293,7 +287,7 @@ function LolPage() {  // Определяет функциональный ко�
 </div>
 
 
-
+<CharacterStats />
 </div>
 <ul className="flex flex-col items-start justify-start  p-6  ">
 

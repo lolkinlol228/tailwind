@@ -48,6 +48,7 @@ function LolPage() {
           Вернуться на главную страницу
         </button>
       </Link>
+      
       </main>
       
       <footer className="bg-green-950 text-green-400 p-4 text-center">
