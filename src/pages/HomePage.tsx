@@ -244,7 +244,9 @@ function LolPage() {  // Определяет функциональный ко�
 
 <CharacterStats />
 </div>
-<ul className="flex flex-col items-start justify-start  p-6  ">
+<ul className="flex flex-col items-start justify-start p-6 pt-1">
+
+
 
   <li className="inline-flex items-center justify-between bg-newbgcolor w-full p-4 " 
    style={{ backgroundColor: 'rgb(80, 72, 111)' }}>
