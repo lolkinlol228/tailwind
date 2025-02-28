@@ -30,7 +30,7 @@ interface StatRowProps {
 
 const CharacterStats: React.FC = () => {
   const levelData: LevelDataType = {
-    20: { hp: 2202, atk: 43, def: 163, atkBonus: "0%" },
+    20: { hp: 2202, atk: 43, def: 163, atkBonus: "0%", price: "Бесплатно" },
     40: { hp: 4257, atk: 84, def: 316, atkBonus: "0%", price: 20000 },
     50: { hp: 5420, atk: 107, def: 402, atkBonus: "6%", price: 40000 },
     60: { hp: 6735, atk: 133, def: 499, atkBonus: "12%", price: 60000 },
@@ -39,7 +39,7 @@ const CharacterStats: React.FC = () => {
     90: { hp: 10222, atk: 202, def: 758, atkBonus: "24%", price: 120000 }
   };
 
-  const availableLevels = Object.keys(levelData).map(Number);
+  const availableLevels = Object.keys(levelData).map(Number); 
   const [level, setLevel] = useState<number>(availableLevels[0]);
 
   const statsConfig: StatsConfigType = {
@@ -111,7 +111,7 @@ const CharacterStats: React.FC = () => {
           </svg>
         </span>
         <div className="w-full max-w-md mx-auto p-4">
-          <input type="range" min="0" max={availableLevels.length - 1} value={availableLevels.indexOf(level)} onChange={(e) => setLevel(availableLevels[parseInt(e.target.value)])} className="slider w-full transform scale-110" style={{ background: `linear-gradient(to right, rgb(93, 81, 135) ${getSliderPercentage()}%, rgb(67, 59, 98) ${getSliderPercentage()}%)` }} />
+          <input type="range" min="0" max={availableLevels.length - 1} value={availableLevels.indexOf(level)} onChange={(e) => setLevel(availableLevels[parseInt(e.target.value)])} className="slider w-full transform scale-110" style={{ background: `rgb(218, 216, 225)` }} />
         </div>
       </div>
       <table className="stat-table hover w-full">
@@ -122,8 +122,8 @@ const CharacterStats: React.FC = () => {
         </tbody>
       </table>
       {levelData[level].price && (
-        <div className='inline-flex items-center justify-center bg-newbgcolor w-full p-4 rounded-[15px]' style={{ border: "2px solid rgb(122, 107, 171)" }}>
-          Цена возвышения: <span style={{ color: "rgb(220, 173, 247)", paddingLeft: '15px' }}>{levelData[level].price}</span>
+        <div className='inline-flex items-center justify-center bg-newbgcolor w-full p-4 rounded-[15px]' style={{ border: "2px solid rgb(93, 81, 135)" }}>
+          <a className='text-text-color'>Цена возвышения:</a> <span style={{ color: "rgb(220, 173, 247)", paddingLeft: '15px', fontWeight: "bold"}}>{levelData[level].price}</span>
         </div>
       )}
     </div>
